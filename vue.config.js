@@ -4,6 +4,7 @@ module.exports = {
   ],
   publicPath: '/todo-app',
   outputDir: 'docs',
+  assetsDir: './',
   filenameHashing: false,
   productionSourceMap: false,
 }

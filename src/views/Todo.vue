@@ -5,9 +5,9 @@
       label="Add Task"
       @click:append="addTask()"
       @keyup.enter="addTask()"
-      class="pa-2"
+      class="pa-4"
       append-icon="mdi-plus"
-      color="deep-purple lighten-3"
+      color="brown lighten-2"
       outlined
       hide-details
       clearable
@@ -16,7 +16,7 @@
       <div v-for="task in tasks" :key="task.id">
         <v-list-item
           @click="doneTask(task.id)"
-          :class="{ 'deep-purple lighten-3': task.done }"
+          :class="{ 'grey lighten-2': task.done }"
         >
           <template v-slot:default>
             <v-list-item-action>
@@ -25,7 +25,8 @@
 
             <v-list-item-content>
               <v-list-item-title
-                :class="{ 'text-decoration-line-through': task.done }"
+                :class="{ 'text-decoration-line-through': task.done, '-unactive': task.done }"
+                class="color-purple"
                 >{{ task.title }}</v-list-item-title
               >
             </v-list-item-content>
@@ -33,7 +34,7 @@
             <v-list-item-action>
               <v-btn icon>
                 <v-icon
-                  color="deep-purple lighten-1"
+                  color="brown lighten-2"
                   @click.stop="deleteTask(task.id)"
                   >mdi-delete</v-icon
                 >
@@ -51,7 +52,7 @@
       <!-- {{ texts[0].message }} -->
       <template v-slot:action="{ attrs }">
         <v-btn
-          color="pink"
+          class="color-baige"
           text
           v-bind="attrs"
           @click="snackbar = false"
@@ -110,3 +111,24 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .-unactive{
+    opacity: .5;
+  }
+  .color-black{
+    color: #36312E;
+  }
+  .color-purple{
+    color: #716679;
+  }
+  .color-baige{
+    color: #FDF4E7;
+  }
+  .color-brown{
+    color: #AE9C94;
+  }
+  .color-green{
+    color: #93A8B2;
+  }
+</style>
